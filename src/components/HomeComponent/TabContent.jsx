@@ -1,11 +1,11 @@
 import { IoIosSearch } from "react-icons/io";
-import Badge from "../Badge";
 import CoinRecord from '../../assets/CoinRecord.json'
 import { useNavigate } from "react-router-dom";
 
 
-export default function TabContent() {
+export default function TabContent(props) {
 
+    const tab = props.tab
     const navigate = useNavigate()
 
     const handleViewCrypto = () => {
@@ -15,7 +15,7 @@ export default function TabContent() {
     return <>
         <div class="">
             <div class="mt-3 relative rounded-sm border border-black border-opacity-25 shadow-md bg-white mb-10">
-                <div role="tabpanel" id="panel-1" class="tab-panel  transition duration-300 ">
+                <div id="panel-1" class={tab === 1 ? "block" : "hidden"}>
                     <div className="flex justify-between items-center px-6 py-3">
                         <h2 class="text-xl font-semibold text-[var(--secondary-color)]">Linea assets</h2>
                         <div className="flex items-center border px-2 py-2 gap-2 border-opacity-90 rounded-sm">
@@ -35,7 +35,7 @@ export default function TabContent() {
                             </thead>
                             <tbody>
                                 {
-                                    CoinRecord.map((item) => {
+                                    CoinRecord.map((item,index) => {
                                         return <tr className="border-b cursor-pointer" onClick={() => handleViewCrypto()}>
                                             <td className="py-2">
                                                 <div className="flex gap-2 items-center py-1">
@@ -58,13 +58,7 @@ export default function TabContent() {
                                                     <div>
                                                         <p className="border  px-2 text-xs font-medium text-[var(--secondary-color)] cursor-pointer rounded-sm hover:border-black hover:border-opacity-50 inline-block"> {item.supplyAPY.sRewards}%</p>
                                                     </div>
-                                                    <div className="flex flex-col">
-                                                        {
-                                                            item.supplyAPY.gravityPoints.map((itemPoints) => {
-                                                                return <Badge title={itemPoints} />
-                                                            })
-                                                        }
-                                                    </div>
+                                                  
                                                 </div>
                                             </td>
                                             <td className="py-2">
@@ -79,14 +73,7 @@ export default function TabContent() {
                                                     <div>
                                                         <p className="border  px-2 text-xs font-medium text-[var(--secondary-color)] cursor-pointer rounded-sm hover:border-black hover:border-opacity-50 inline-block"> {item.borrowAPY.bRewards}%</p>
                                                     </div>
-                                                    <div className="flex flex-col">
-                                                        {item.borrowAPY.bGravityPoints.map((bItems) => {
-                                                            return <Badge title={bItems} />
-                                                        })}
-
-
-
-                                                    </div>
+                                                   
                                                 </div>
                                             </td>
                                             <td className="text-center py-2">
@@ -103,9 +90,11 @@ export default function TabContent() {
                         </table>
                     </div>
                 </div>
-                <div role="tabpanel" id="panel-2" class="absolute top-0 invisible opacity-0 tab-panel p-6 transition duration-300">
-                    <h2 class="text-xl font-semibold text-gray-800">Second tab panel</h2>
-                    <p class="mt-4 text-gray-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas dolores voluptate temporibus, atque ab eos, delectus at ad hic voluptatem veritatis iure, nulla voluptates quod nobis doloremque eaque! Perferendis, soluta.</p>
+                <div id="panel-2" class={tab === 2 ? "block" : "hidden"}>
+                   <div className="p-5">
+                   <h2 class="text-xl font-semibold text-gray-800">Second tab panel</h2>
+                   <p class="mt-4 text-gray-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas dolores voluptate temporibus, atque ab eos, delectus at ad hic voluptatem veritatis iure, nulla voluptates quod nobis doloremque eaque! Perferendis, soluta.</p>
+                   </div>
                 </div>
 
             </div>

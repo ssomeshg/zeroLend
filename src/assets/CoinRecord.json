@@ -42,9 +42,7 @@
     "borrowAPY": {
         "bTotalpercentage":28.68,
         "bRewards":7.18,
-        "bGravityPoints":[
-           
-        ]
+        "bGravityPoints":[]
     }
   }
 ]

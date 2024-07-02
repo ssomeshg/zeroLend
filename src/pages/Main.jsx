@@ -10,9 +10,6 @@ export default function Main() {
                 <BreadCamp bgColor={"#9b9b9b47"} color={"#fff"} breadTitle={"Farm Protocol Revenue in ETH and future Airdrops 🚀"} breadSubtitle={`Stake your ZERO/ETH LP tokens and earn up to -% in ETH plus farm future potential airdrops. Stake or Zap into LP tokens here.`} />
 
             </div>
-
-
-
         </main>
     </>
 }
